@@ -1,0 +1,243 @@
+.exchange__title {
+    font-size: 22px;
+    line-height: 24px;
+    font-weight: 700;
+    padding-top: 40px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+
+.exchange__list {
+    display: flex;
+}
+
+.exchange__item {
+    padding-top: 10px;
+    padding-right: 10px;
+}
+
+.exchange__caption {
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 300;
+    padding-top: 20px;
+}
+
+
+.exchange__text {
+    font-size: 22px;
+    line-height: 24px;
+    font-weight: 700;
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+
+.exchange__date {
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 300;
+}
+
+.exchange__link {
+    display: block;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: underline;
+    margin: 10px;
+    text-align: center;
+    padding: 2px 0;
+}
+
+.exchange__link:hover {
+    background-color: #3c3c3c;
+    color: yellow;
+}
+
+.exchange__button {
+    width: 50px;
+    height: 35px;
+    background-color: #3c3c3c;
+    color: white;
+    cursor: pointer;
+    border-radius: 44%;
+}
+
+.exchange__button:hover {
+    color: yellow;
+    opacity: 0.9;
+}
+
+.exchange__button:active {
+    color: white;
+    opacity: 0.5;
+}
+
+.form {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.form__group {
+    position: relative;
+    padding: 20px 0 0;
+    margin-top: 10px;
+    width: 80%;
+}
+
+.form__field {
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid #9b9b9b;
+    outline: 0;
+    font-size: 17px;
+    color: #3c3c3c;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+}
+
+.form__field::placeholder {
+    color: transparent;
+}
+
+.form__field:placeholder-shown~.form__label {
+    font-size: 17px;
+    cursor: text;
+    top: 20px;
+}
+
+.form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 17px;
+    color: #3c3c3c;
+    pointer-events: none;
+}
+
+.form__field:focus {
+    padding-bottom: 6px;
+    font-weight: 700;
+    border-width: 3px;
+    border-image: linear-gradient(to right, #3c3c3c, yellow);
+    border-image-slice: 1;
+}
+
+.form__field:focus~.form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 17px;
+    color: #3c3c3c;
+    font-weight: 700;
+}
+
+
+.form__field:required,
+.form__field:invalid {
+    box-shadow: none;
+}
+
+.form__name {
+    display: block;
+    padding-top: 30px;
+    font-weight: 700;
+    padding-right: 15px;
+}
+
+@media (min-width: 610px) {
+    .exchange {
+        display: flex;
+    }
+
+    .exchange__wrapper {
+        width: 50%;
+    }
+
+    .form__name {
+        padding-right: 25px;
+    }
+
+    .exchange__caption {
+        text-align: right;
+    }
+
+    .exchange__text {
+        padding-left: 20px;
+    }
+
+    .exchange__title {
+        padding-top: 60px;
+    }
+
+    .exchange__item {
+        padding-top: 20px;
+    }
+
+    .exchange__date {
+        text-align: right;
+    }
+
+
+    .form::after {
+        content: "";
+        position: absolute;
+        right: 7px;
+        top: 10px;
+        width: 1px;
+        height: 150px;
+        background-color: grey;
+    }
+}
+
+
+
+
+@media (min-width: 1100px) {
+    .exchange {
+        justify-content: center;
+    }
+
+    .exchange__wrapper {
+        width: 35%;
+    }
+
+    .exchange__date {
+        font-size: 18px;
+    }
+
+    .exchange__caption {
+        font-size: 18px;
+    }
+
+    .exchange__button {
+        width: 65px;
+        height: 40px;
+    }
+
+    .exchange__link {
+        margin-top: 30px;
+        margin-bottom: 100px;
+    }
+
+    .exchange__title {
+        padding-top: 80px;
+        font-size: 28px;
+        line-height: 31px;
+        padding-bottom: 35px;
+    }
+
+    .form::after {
+        right: -1px;
+        top: -50px;
+        height: 210px;
+    }
+
+
+}
