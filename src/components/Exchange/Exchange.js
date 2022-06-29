@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 
 import "./Exchange.css";
 
@@ -21,30 +21,30 @@ function Exchange({ items, setItems }) {
     if (e.target.innerHTML === "USD") {
       setName("USD");
       setPick(usd);
-      console.log('Была нажата кнопка USD');
+      console.log("Была нажата кнопка USD");
     } else if (e.target.innerHTML === "EUR") {
       setName("EUR");
       setPick(eur);
-      console.log('Была нажата кнопка EUR');
+      console.log("Была нажата кнопка EUR");
     } else if (e.target.innerHTML === "GBP") {
       setName("GBP");
       setPick(gbp);
-      console.log('Была нажата кнопка GBP');
+      console.log("Была нажата кнопка GBP");
     } else {
       setName("CHF");
       setPick(chf);
-      console.log('Была нажата кнопка CHF');
+      console.log("Была нажата кнопка CHF");
     }
   };
 
   const onChangeInput = (e) => {
     setValue(+e.target.value);
-    console.log('Была изменена сумма обмена');
+    console.log("Была изменена сумма обмена");
   };
 
   useEffect(() => {
     fetch(
-    // "https://api.apilayer.com/fixer/latest?apikey=mJs7VloEVx3C0pVyKwLQOLxEE8giQFDV&base=AMD"
+      "https://api.apilayer.com/fixer/latest?apikey=0svj4aHvggQ1OZjeTj5khLmhJ2IyElXP&base=AMD"
     )
       .then((res) => res.json())
       .then(
@@ -64,26 +64,26 @@ function Exchange({ items, setItems }) {
           setItems([]);
         }
       );
-  }, []);
+  }, [setItems]);
 
-//если ошибка на сервере
+  //если ошибка на сервере
   if (error) {
     return (
-      <section className="exchange container">
+      <section className="exchange">
         <div className="exchange__wrapper">
-          <h2 className="exchange__title">{t('description.title')}</h2>
-          
+          <h2 className="exchange__title">{t("description.title")}</h2>
+
           <div className="form">
             <div className="form__group field">
               <input
                 required=""
-                placeholder={t('description.enter')}
+                placeholder={t("description.enter")}
                 className="form__field"
                 type="number"
                 onInput={onChangeInput}
               />
               <label className="form__label" htmlFor="name">
-              {t('description.enter')}
+                {t("description.enter")}
               </label>
             </div>
 
@@ -115,33 +115,33 @@ function Exchange({ items, setItems }) {
         </div>
 
         <div className="exchange__wrapper">
-          <h2 className="exchange__title">{t('description.get')}</h2>
+          <h2 className="exchange__title">{t("description.get")}</h2>
           <p className="exchange__text">
-          {t('description.error')} {error.message}
+            {t("description.error")} {error.message}
             <br />
-            {t('description.fix')}
+            {t("description.fix")}
           </p>
         </div>
       </section>
     );
-  } 
+  }
   //если еще загружается
   else if (!isLoaded) {
     return (
       <section className="exchange container">
         <div className="exchange__wrapper">
-          <h2 className="exchange__title">{t('description.title')}</h2>
+          <h2 className="exchange__title">{t("description.title")}</h2>
           <div className="form">
             <div className="form__group field">
               <input
                 required=""
-                placeholder={t('description.enter')}
+                placeholder={t("description.enter")}
                 className="form__field"
                 type="number"
                 onInput={onChangeInput}
               />
               <label className="form__label" htmlFor="name">
-              {t('description.enter')}
+                {t("description.enter")}
               </label>
             </div>
 
@@ -173,9 +173,9 @@ function Exchange({ items, setItems }) {
         </div>
 
         <div className="exchange__wrapper">
-          <h2 className="exchange__title">{t('description.get')}</h2>
+          <h2 className="exchange__title">{t("description.get")}</h2>
 
-          <p className="exchange__text">{t('description.load')}</p>
+          <p className="exchange__text">{t("description.load")}</p>
         </div>
       </section>
     );
@@ -183,18 +183,18 @@ function Exchange({ items, setItems }) {
     return (
       <section className="exchange container">
         <div className="exchange__wrapper">
-          <h2 className="exchange__title">{t('description.title')}</h2>
+          <h2 className="exchange__title">{t("description.title")}</h2>
           <div className="form">
             <div className="form__group field">
               <input
                 required=""
-                placeholder={t('description.enter')}
+                placeholder={t("description.enter")}
                 className="form__field"
                 type="number"
                 onInput={onChangeInput}
               />
               <label className="form__label" htmlFor="name">
-              {t('description.enter')}
+                {t("description.enter")}
               </label>
             </div>
 
@@ -226,24 +226,28 @@ function Exchange({ items, setItems }) {
         </div>
 
         <div className="exchange__wrapper">
-          <h2 className="exchange__title">{t('description.get')}</h2>
+          <h2 className="exchange__title">{t("description.get")}</h2>
           <p className="exchange__caption">
-            {pick} {name} {t('description.for')} 1 AMD
+            {pick} {name} {t("description.for")} 1 AMD
           </p>
           <p className="exchange__text">
-          {t('description.total')} {(value / pick).toFixed(2)} AMD
+            {t("description.total")} {(value / pick).toFixed(2)} AMD
           </p>
           <div>
             <p className="exchange__date">
-            {t('description.actualy')}{" "}
+              {t("description.actualy")}{" "}
               {date.getDate() > 9 ? date.getDate() : `0${date.getDate()}`}.
               {date.getMonth() > 9
                 ? date.getMonth() + 1
                 : `0${date.getMonth() + 1}`}
               .{date.getFullYear()}
             </p>
-            <Link className="exchange__link" to="/info" onClick={() => console.log('Была нажата ссылка для перехода')}>
-            {t('description.more')}
+            <Link
+              className="exchange__link"
+              to="/info"
+              onClick={() => console.log("Была нажата ссылка для перехода")}
+            >
+              {t("description.more")}
             </Link>
           </div>
         </div>

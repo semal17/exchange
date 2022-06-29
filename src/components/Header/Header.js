@@ -1,4 +1,4 @@
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 
 import Switch from "../Switch/Switch";
 
@@ -10,7 +10,7 @@ function Header() {
   return (
     <header className="header">
       <div className="header__wrapper  container">
-        <h1 className="header__title">{t('description.name')}</h1>
+        <h1 className="header__title">{t("description.name")}</h1>
         <Switch />
       </div>
     </header>

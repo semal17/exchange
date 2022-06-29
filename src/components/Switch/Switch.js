@@ -7,23 +7,20 @@ function Switch() {
   const { i18n } = useTranslation();
   const [lang, setLang] = useState("ru");
 
+  let handleChange = () => {
+    if (lang === "en") {
+      setLang("ru");
+      i18n.changeLanguage("ru");
+    } else {
+      setLang("en");
+      i18n.changeLanguage("en");
+    }
+  };
+
   return (
     <label className="switch">
-      <input type="checkbox" />
-      <span
-        className="slider"
-        id={lang}
-        onClick={(e) => {
-          if (e.target.id === "en") {
-            setLang("ru");
-            i18n.changeLanguage("ru")
-          } else {
-            setLang("en");
-            i18n.changeLanguage("en")
-          }
-        }
-        }
-      ></span>
+      <input type="checkbox" checked={lang === "en"} onChange={handleChange} />
+      <span className="slider"></span>
     </label>
   );
 }
